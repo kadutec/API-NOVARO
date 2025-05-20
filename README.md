@@ -20,105 +20,71 @@ Este projeto é uma **API RESTful** básica que simula o funcionamento de uma ca
 
 Siga os passos abaixo para rodar a API em sua máquina local.
 
-### 1. Clone o repositório
-
-```bash
+1. Clone o repositório:
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
 
-### 2. Instale as dependências
-```bash
+Instale as dependências:
 composer install
 
-### 3. Copie o arquivo de ambiente
-```bash
+Copie o arquivo de ambiente:
 cp .env.example .env
 
-### 4. Configure o banco de dados SQLite
-```bash
+Configure o banco de dados SQLite:
 touch database/database.sqlite
 
-#### Edite o arquivo .env e configure o banco de dados:
-```bash
+Edite o arquivo .env e configure o banco de dados:
 DB_CONNECTION=sqlite
 DB_DATABASE=${PWD}/database/database.sqlite
 
-### 5. Gere a chave da aplicação
-```bash
+Gere a chave da aplicação:
 php artisan key:generate
 
-### 6. Execute as migrations
-```bash
+Execute as migrations:
 php artisan migrate
 
-### 7. Inicie o servidor
-```bash
+Inicie o servidor:
 php artisan serve
 
 O projeto estará disponível em: http://127.0.0.1:8000
-
 
 📬 Endpoints da API
 Todos os endpoints seguem o prefixo /api.
 
 ✅ Consultar saldo
-###GET /api/wallets
+GET /api/wallets
 
 Resposta:
-json
-{
-  "walletId": 1,
-  "balance": 150.00
-}
+{ "walletId": 1, "balance": 150.00 }
 
 💸 Depositar valor
-###POST /api/wallets
+POST /api/wallets
 
 Body (JSON):
-json
-{
-  "amount": 100.00
-}
+{ "amount": 100.00 }
+
 Resposta:
-{
-  "message": "Depósito realizado com sucesso",
-  "newBalance": 250.00
-}
+{ "message": "Depósito realizado com sucesso", "newBalance": 250.00 }
 
 🏧 Sacar valor
-###POST /api/wallets/withdrawal
+POST /api/wallets/withdrawal
 
 Body (JSON):
-json
-{
-  "amount": 50.00
-}
+{ "amount": 50.00 }
+
 Resposta:
-json
-{
-  "message": "Saque realizado com sucesso",
-  "newBalance": 200.00
-}
+{ "message": "Saque realizado com sucesso", "newBalance": 200.00 }
 
 🔁 Transferência simulada
-###POST /api/wallets/transfer
+POST /api/wallets/transfer
 
 Simula a transferência de um valor de uma carteira para uma segunda carteira (criada automaticamente).
 
 Body (JSON):
+{ "amount": 75.00 }
 
-json
-{
-  "amount": 75.00
-}
 Resposta:
-json
-{
-  "message": "Transferência realizada com sucesso",
-  "transferredAmount": 75.0,
-  "originWalletBalance": 125.0,
-  "destinationWalletBalance": 75.0
-}
+{ "message": "Transferência realizada com sucesso", "transferredAmount": 75.0, "originWalletBalance": 125.0, "destinationWalletBalance": 75.0 }
 
 🧪 Testando a API
 Use ferramentas como Postman ou Insomnia para testar os endpoints da API.
