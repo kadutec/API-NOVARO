@@ -21,8 +21,8 @@ Este projeto é uma **API RESTful** básica que simula o funcionamento de uma ca
 Siga os passos abaixo para rodar a API em sua máquina local.
 
 1. Clone o repositório:
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/kadutec/API-NOVARO.git
+cd API-NOVARO
 
 Instale as dependências:
 composer install
