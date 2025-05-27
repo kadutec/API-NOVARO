@@ -105,8 +105,6 @@ class WalletController extends Controller
             ], 400);
         }
 
-        // aqui eu optei por fazer uma transferencia simulada, pegando apenas um id do usuario diferente do original...
-
         $destinationWallet = Wallet::where('id', '!=', $originWallet->id)->first();
 
         if (!$destinationWallet) {
